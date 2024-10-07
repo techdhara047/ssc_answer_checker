@@ -118,7 +118,11 @@ app.get('/result', async(req, res) => {
     }
 
     try {
-        const result = await axios.get(url);
+        const result = await axios.get(url, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            },
+          });
         const html = result.data;
        const data = getInfo(html,negative, marksperquestion)
        res.send(data)
