@@ -105,6 +105,9 @@ const getInfo = (html,negative, marksperquestion) => {
     };
 }
 
+app.get('/',(req, res) => {
+    res.send("welcome")
+})
 app.get('/result', async(req, res) => {
     const { url } =req.query;
     const negative = 0.5;
@@ -123,7 +126,7 @@ app.get('/result', async(req, res) => {
         
     } catch (error) {
         console.error(error);
-        res.status(500).send({error: result, message: 'Error fetching data from the provided URL'});
+        res.status(500).send({error, message: 'Error fetching data from the provided URL'});
         
     }
 })
