@@ -123,7 +123,7 @@ app.get('/result', async(req, res) => {
         
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error fetching data from the provided URL');
+        res.status(500).send({error: result, message: 'Error fetching data from the provided URL'});
         
     }
 })
